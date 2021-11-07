@@ -11,8 +11,8 @@ package capapresentacion;
  * 
  */
 
-import entidades.lmarcas;
-import Logica.marcas;
+import entidades.modelos;
+import Logica.modelo;
 import java.sql.*;
 import java.util.ArrayList;
 import java.io.File;
@@ -22,8 +22,8 @@ public class Modelos extends javax.swing.JFrame {
 
     /**
      * Creates new form Modelos
-     */    marcas ve;
-    marcas vo = new marcas();
+     */    modelo ve;
+    modelos vo = new modelos();
     public Modelos() {
         initComponents();
     }
@@ -119,7 +119,7 @@ public class Modelos extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
        
-        String marca = jTextFieldmodelos.getText();
+        String modelo = jTextFieldmodelos.getText();
 
         this.agregar( modelo );
 
@@ -130,12 +130,35 @@ public class Modelos extends javax.swing.JFrame {
        
         String modelo = jTextFieldmodelos.getText();
 
-        this.modificar(vehiculo, modelo, marca, id);
+        this.modificar( modelo, id);
 
         limpiar();
 
     }//GEN-LAST:event_jButton2ActionPerformed
-
+   public void agregar( String modelo ){
+        modelos vo = new modelos();
+        ve = new modelo();
+        
+       
+        vo.setModelo(modelo);
+       
+        ve.Agregarmodelo(vo);
+        limpiar();
+    }
+      public void modificar( String modelo, int id){
+          modelos vo = new modelos();
+        ve = new modelo();
+        
+         vo.setId(id);
+   
+        vo.setModelo(modelo);
+       
+        ve.Modificarmodelo(vo);
+        limpiar();
+    }
+        public void limpiar(){
+        jTextFieldmodelos.setText("");
+        }
     /**
      * @param args the command line arguments
      */

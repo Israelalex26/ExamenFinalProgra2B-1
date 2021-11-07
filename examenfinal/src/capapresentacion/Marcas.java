@@ -6,7 +6,6 @@
 package capapresentacion;
 
 
-package capapresentacion;
 import entidades.lmarcas;
 import Logica.marcas;
 import java.sql.*;
